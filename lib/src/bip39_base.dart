@@ -79,7 +79,7 @@ String entropyToMnemonic(String entropyString) {
 }
 
 Uint8List mnemonicToSeed(String mnemonic, {String passphrase = ""}) {
-  final pbkdf2 = new PBKDF2();
+  final pbkdf2 = new PBKDF2(desiredKeyLength: 32);
   return pbkdf2.process(mnemonic, passphrase: passphrase);
 }
 
